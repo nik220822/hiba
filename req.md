@@ -1,0 +1,1 @@
+http://localhost:8070/persons/by-city?city=Moscow
