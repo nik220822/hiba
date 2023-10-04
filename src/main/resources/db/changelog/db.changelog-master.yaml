@@ -1,0 +1,153 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.changelog1.yaml
+  - changeSet:
+      id: 1
+      author: Nick
+      comment: "No comments"
+      changes:
+        - createTable:
+            tableName: persons
+            columns:
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: surname
+                  type: varchar(255)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: age
+                  type: int
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: phone_number
+                  type: varchar(255)
+              - column:
+                  name: city_of_living
+                  type: varchar(255)
+  - changeSet:
+      id: 2
+      author: Nick
+      comment: "same"
+      changes:
+        - insert:
+            tableName: persons
+            columns:
+              - column:
+                  name: name
+                  value: "Иван"
+              - column:
+                  name: surname
+                  value: "Кащеев"
+              - column:
+                  name: age
+                  value: "25"
+              - column:
+                  name: phone_number
+                  value: "73337896641"
+              - column:
+                  name: city_of_living
+                  value: "Moscow"
+        - insert:
+            tableName: persons
+            columns:
+              - column:
+                  name: name
+                  value: "Пётр"
+              - column:
+                  name: surname
+                  value: "Худой"
+              - column:
+                  name: age
+                  value: "22"
+              - column:
+                  name: phone_number
+                  value: "73337896644"
+              - column:
+                  name: city_of_living
+                  value: "Санкт-Петербург"
+
+
+              - insert:
+                  tableName: persons
+                  columns:
+                    - column:
+                        name: name
+                        value: "Иван"
+                    - column:
+                        name: surname
+                        value: "Кащеев"
+                    - column:
+                        name: age
+                        value: "25"
+                    - column:
+                        name: phone_number
+                        value: "73337896641"
+                    - column:
+                        name: city_of_living
+                        value: "Moscow"
+        - insert:
+            tableName: persons
+            columns:
+              - column:
+                  name: name
+                  value: "Григорий"
+              - column:
+                  name: surname
+                  value: "Отрепанов"
+              - column:
+                  name: age
+                  value: "28"
+              - column:
+                  name: phone_number
+                  value: "73337896645"
+              - column:
+                  name: city_of_living
+                  value: "Волгоград"
+        - insert:
+            tableName: persons
+            columns:
+              - column:
+                  name: name
+                  value: "Лука"
+              - column:
+                  name: surname
+                  value: "Моисеев"
+              - column:
+                  name: age
+                  value: "22"
+              - column:
+                  name: phone_number
+                  value: "73337896612"
+              - column:
+                  name: city_of_living
+                  value: "Троицк"
+        - insert:
+            tableName: persons
+            columns:
+              - column:
+                  name: name
+                  value: "Роберт"
+              - column:
+                  name: surname
+                  value: "Венградов"
+              - column:
+                  name: age
+                  value: "29"
+              - column:
+                  name: phone_number
+                  value: "73337896656"
+              - column:
+                  name: city_of_living
+                  value: "Moscow"
+      rollback:
+        - delete:
+            tableName: persons
+            where: name in ('Иван', 'Пётр', 'Григорий', 'Лука', 'Роберт')
